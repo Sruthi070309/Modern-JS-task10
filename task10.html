@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 10 - DOM Student List</title>
+</head>
+<body>
+  <h1>Student List</h1>
+
+  <input type="text" id="studentInput" placeholder="Enter a student name">
+  <button id="addBtn">Add Students</button>
+
+  <ul id="studentList"></ul>
+
+  <script>
+    const studentInput = document.getElementById("studentInput");
+    const addBtn = document.getElementById("addBtn");
+    const studentList = document.getElementById("studentList");
+
+    addBtn.addEventListener("click", () => {
+        const name = studentInput.value.trim(); // read what the user typed
+
+        if (name === "") {
+        alert("Please enter a student name");
+        return;
+        }
+
+        const li = document.createElement("li"); // create
+        li.textContent = name;                   // fill with typed name
+        studentList.appendChild(li);             // append to the <ul>
+
+        studentInput.value = "";                 // clear the box
+        studentInput.focus();                    // cursor back in the box
+    });
+    </script>
+
+</body>
+</html>
